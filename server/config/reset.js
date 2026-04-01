@@ -89,5 +89,29 @@ const seedOptionsTable = async () => {
     })
 }
 
+const createCarTable = async () => {
+    const createCarQuery = `
+        DROP TABLE IF EXISTS cars;
+
+        CREATE TABLE IF NOT EXISTS cars (
+            id SERIAL PRIMARY KEY,
+            name VARCHAR(255) NOT NULL,
+            exterior VARCHAR(255) NOT NULL,
+            roof VARCHAR(255) NOT NULL,
+            wheels VARCHAR(255) NOT NULL,
+            interior VARCHAR(255) NOT NULL,
+            price NUMERIC(10,2)
+        )
+    `
+
+    try {
+        const res = await pool.query(createCarQuery)
+        console.log('🎉 Cars table created successfully')
+    } catch (err) {
+        console.error('⚠️ error creating Car table', err)
+    }
+}
+
 seedCustomItemsTable()
 seedOptionsTable()
+createCarTable()

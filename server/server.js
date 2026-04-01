@@ -2,6 +2,8 @@ import express from 'express'
 import path from 'path'
 import favicon from 'serve-favicon'
 import dotenv from 'dotenv'
+import carRsouter from './routes/cars.js'
+import customItemsRouter from './routes/customItems.js'
 
 // import the router from your routes file
 
@@ -13,6 +15,8 @@ const PORT = process.env.PORT || 3000
 const app = express()
 
 app.use(express.json())
+app.use('/api/cars', carRsouter)
+app.use('/api/customItems', customItemsRouter)
 
 if (process.env.NODE_ENV === 'development') {
     app.use(favicon(path.resolve('../', 'client', 'public', 'lightning.png')))
