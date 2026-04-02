@@ -1,0 +1,39 @@
+.view-cars-wrapper {
+    min-height: calc(100vh - 150px);
+    box-sizing: border-box;
+    height: calc(100vh - 150px);
+}
+
+.page-title {
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+    display: flex;
+    justify-content: center;
+}
+
+.page-title h1 {
+    margin-bottom: 32px;
+}
+
+.view-cars-status {
+    color: white;
+    font-size: 1.1rem;
+}
+
+.view-cars-link {
+    color: var(--primary);
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.view-cars-link:hover {
+    color: white;
+}
+
+/* Grid layout */
+.cars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+}
