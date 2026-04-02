@@ -1,0 +1,80 @@
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.modal-box {
+    background: white;
+    border-radius: 10px;
+    padding: 24px;
+    width: 400px;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.modal-box h2 {
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+.modal-options {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: black;
+}
+
+.modal-option {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 14px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.modal-option:hover {
+    border-color: #aaa;
+}
+
+.modal-option.selected {
+    border-color: #1a73e8;
+    background: #e8f0fe;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.modal-actions button {
+    padding: 8px 20px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+.done-btn {
+    background: #1a73e8;
+    color: white;
+    border-color: #1a73e8 !important;
+}
+
+.done-btn:disabled {
+    background: #aaa;
+    border-color: #aaa !important;
+    cursor: not-allowed;
+}

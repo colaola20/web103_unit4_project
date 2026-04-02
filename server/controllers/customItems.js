@@ -19,9 +19,9 @@ const getCustomItemsById = async (req, res) => {
             WHERE customItemId = $1
         `
 
-        const customItemId = req.params.customItemId
+        const customItemId = req.params.customItemsID
         const results = await pool.query(selectQuery, [customItemId])
-        res.status(200).json(results.rows[0])
+        res.status(200).json(results.rows)
     } catch (error) {
         res.status(409).json( { error: error.message} )
     }

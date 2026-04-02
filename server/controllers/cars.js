@@ -1,3 +1,5 @@
+import {pool} from '../config/database.js'
+
 const createCar = async (req, res) => {
     try {
         const { name, exterior, roof, wheels, interior, price } = req.body

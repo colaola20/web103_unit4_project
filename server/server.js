@@ -1,21 +1,18 @@
+import './config/dotenv.js'
 import express from 'express'
 import path from 'path'
 import favicon from 'serve-favicon'
-import dotenv from 'dotenv'
-import carRsouter from './routes/cars.js'
+import carsRouter from './routes/cars.js'
 import customItemsRouter from './routes/customItems.js'
 
 // import the router from your routes file
-
-
-dotenv.config()
 
 const PORT = process.env.PORT || 3000
 
 const app = express()
 
 app.use(express.json())
-app.use('/api/cars', carRsouter)
+app.use('/api/cars', carsRouter)
 app.use('/api/customItems', customItemsRouter)
 
 if (process.env.NODE_ENV === 'development') {

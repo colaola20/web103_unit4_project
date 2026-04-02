@@ -1,3 +1,5 @@
+import {pool} from '../config/database.js'
+
 const getOptions = async (req, res) => {
     try {
         const customItemId = parseInt(req.params.id)
