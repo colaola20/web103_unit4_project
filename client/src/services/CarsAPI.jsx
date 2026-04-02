@@ -1,3 +1,13 @@
+const createCar = async (carData) => {
+    const response = await fetch('/api/cars', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(carData)
+    })
+    const data = await response.json()
+    return data
+}
+
 const getAllCars = async () => {
     const response = await fetch('/api/cars')
     const data = await response.json()
@@ -11,6 +21,7 @@ const getCarById = async (id) => {
 }
 
 export default {
+    createCar,
     getAllCars,
     getCarById
 }

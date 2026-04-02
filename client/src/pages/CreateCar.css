@@ -1,3 +1,11 @@
+.container-wraper {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 150px);
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
 .create-car-container {
     width: 100vw;
     background-color: rgba(0, 0, 0, 0.8);
@@ -61,6 +69,26 @@
 }
 
 .actions li {
+    display: inline;       /* optional, flex already handles layout */
+}
+
+.price-box {
+    display: flex;
+    align-items: end;
+    margin-top: auto;
+    padding: 32px;
+}
+
+.price-box ul {
+    list-style: none;      /* removes bullets */
+    padding: 0;            /* removes default padding */
+    margin: 0;             /* optional */
+    
+    display: flex;         /* makes items go in a row */
+    gap: 10px;             /* space between items */
+}
+
+.price-box li {
     display: inline;       /* optional, flex already handles layout */
 }
 
