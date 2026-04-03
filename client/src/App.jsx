@@ -5,7 +5,7 @@ import ViewCars from './pages/ViewCars'
 import EditCar from './pages/EditCar'
 import CreateCar from './pages/CreateCar'
 import CarDetails from './pages/CarDetails'
-import './App.css'
+import './css/App.css'
 
 const App = () => {
   let element = useRoutes([

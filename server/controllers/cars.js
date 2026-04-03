@@ -2,13 +2,13 @@ import {pool} from '../config/database.js'
 
 const createCar = async (req, res) => {
     try {
-        const { name, exterior, roof, wheels, interior, price } = req.body
+        const { name, convertible, exterior, roof, wheels, interior, price } = req.body
 
         const results = await pool.query(`
-            INSERT INTO cars (name, exterior, roof, wheels, interior, price)
-            VALUES($1, $2, $3, $4, $5, $6)
+            INSERT INTO cars (name, convertible, exterior, roof, wheels, interior, price)
+            VALUES($1, $2, $3, $4, $5, $6, $7)
             RETURNING *`,
-            [name, exterior, roof, wheels, interior, price]
+            [name, convertible ?? false, exterior, roof, wheels, interior, price]
             )
 
         res.status(201).json(results.rows[0])
@@ -60,7 +60,7 @@ const getCarById = async (req, res) => {
             WHERE id = $1
         `
 
-        const eventId = req.params.eventId
+        const eventId = req.params.carId
         const results = await pool.query(selectQuery, [eventId])
         res.status(200).json(results.rows[0])
     } catch (error) {

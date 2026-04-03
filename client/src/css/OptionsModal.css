@@ -1,0 +1,149 @@
+/* Overlay (slightly toned down blur to match cards) */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+/* Modal */
+.modal-box {
+    background: var(--bg-card);
+    border-radius: 16px;
+    border: 1px solid var(--border);
+
+    padding: 20px;
+    width: 460px;
+    max-height: 80vh;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    color: var(--text);
+
+    /* match card shadow */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+    animation: fadeIn 0.2s ease;
+}
+
+/* Header (like card header) */
+.modal-box h2 {
+    margin: 0;
+    padding-bottom: 12px;
+
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+
+    border-bottom: 1px solid var(--border);
+}
+
+/* Options list */
+.modal-options {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Option item (same feel as car-spec rows) */
+.modal-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 10px 14px;
+
+    border-radius: 8px;
+    border: 1px solid transparent;
+
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Divider between items like specs */
+.modal-option:not(:last-child) {
+    border-bottom: 1px solid var(--border);
+}
+
+/* Hover */
+.modal-option:hover {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+/* Selected (like active card state) */
+.modal-option.selected {
+    border: 1px solid var(--primary);
+    background: rgba(26, 115, 232, 0.12);
+}
+
+/* Actions (same structure as card footer) */
+.modal-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+}
+
+/* Buttons (match card button style) */
+.modal-actions button {
+    padding: 8px 16px;
+    border-radius: 8px;
+
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text);
+
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+}
+
+/* Hover */
+.modal-actions button:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+/* Primary button (same as card CTA) */
+.done-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+}
+
+.done-btn:hover {
+    background: transparent;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+}
+
+/* Disabled */
+.done-btn:disabled {
+    background: #444;
+    color: #888;
+    cursor: not-allowed;
+}
+
+/* Animation (keep subtle like cards) */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

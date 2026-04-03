@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import CarsAPI from '../services/CarsAPI'
 import CarCard from '../components/CarCard'
-import './ViewCars.css'
+import '../css/ViewCars.css'
 
 const ViewCars = () => {
     const [cars, setCars] = useState([])

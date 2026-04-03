@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './OptionsModal.css'
+import '../css/OptionsModal.css'
 
 const OptionsModal = ({ title, options, currentSelection, onDone, onClose }) => {
     const [selected, setSelected] = useState(currentSelection || null)

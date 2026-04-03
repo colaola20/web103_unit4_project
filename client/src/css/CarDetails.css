@@ -1,0 +1,133 @@
+/* Wrapper */
+.car-details-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 48px 24px;
+    min-height: calc(100vh - 80px);
+    box-sizing: border-box;
+}
+
+/* Card */
+.car-details-card {
+    background: var(--bg-card);
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    width: 100%;
+    max-width: 560px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Header */
+.car-details-header {
+    background: linear-gradient(135deg, var(--primary), #1558b0);
+    padding: 24px 28px;
+}
+
+.car-details-header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: white;
+}
+
+/* Body */
+.car-details-body {
+    padding: 24px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* Spec rows */
+.car-details-spec {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+}
+
+.car-details-spec:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.spec-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+}
+
+.spec-value {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text);
+}
+
+/* Footer */
+.car-details-footer {
+    padding: 18px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border);
+    gap: 12px;
+}
+
+/* Price */
+.car-details-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+/* Buttons */
+.car-details-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-edit {
+    background: var(--primary);
+    color: white;
+    padding: 9px 20px;
+    font-size: 0.85rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-edit:hover {
+    background: transparent;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+}
+
+.btn-delete {
+    background: transparent;
+    color: #e05555;
+    padding: 9px 20px;
+    font-size: 0.85rem;
+    border-radius: 8px;
+    border: 1px solid #e05555;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-delete:hover {
+    background: #e05555;
+    color: white;
+}
+
+/* Loading / error states */
+.car-details-status {
+    color: white;
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 48px;
+}

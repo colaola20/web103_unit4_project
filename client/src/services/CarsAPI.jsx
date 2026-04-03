@@ -20,8 +20,14 @@ const getCarById = async (id) => {
     return data
 }
 
+const deleteCar = async (id) => {
+    const response = await fetch(`/api/cars/${id}`, { method: 'DELETE' })
+    return response.ok
+}
+
 export default {
     createCar,
     getAllCars,
-    getCarById
+    getCarById,
+    deleteCar
 }

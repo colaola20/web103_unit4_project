@@ -1,0 +1,160 @@
+.container-wraper {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 150px);
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* ── Top control bar ── */
+.create-car-container {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 18px 32px;
+    display: flex;
+    gap: 24px;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.custom-items {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.custom-items label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+.custom-items ul,
+.actions ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 10px;
+}
+
+.custom-items li,
+.actions li {
+    display: inline;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.actions input {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 0.95rem;
+}
+
+.actions input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* Highlight buttons that have an option chosen */
+.option-selected {
+    border-color: rgba(255, 255, 255, 0.7) !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+    color: white !important;
+}
+
+/* ── Preview area ── */
+.preview-area {
+    flex: 1;
+    display: flex;
+    gap: 0;
+    overflow: hidden;
+}
+
+.car-visual {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 32px;
+}
+
+.car-svg {
+    width: 100%;
+    max-width: 600px;
+    filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.6));
+    transition: filter 0.3s ease;
+}
+
+/* ── Specs panel ── */
+.car-specs {
+    width: 240px;
+    flex-shrink: 0;
+    background: rgba(0, 0, 0, 0.6);
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.car-specs h3 {
+    margin: 0;
+    font-size: 1.05rem;
+    color: white;
+    opacity: 0.9;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.specs-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex: 1;
+}
+
+.specs-list li {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.spec-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.45);
+}
+
+.spec-value {
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.3;
+}
+
+.spec-empty {
+    color: rgba(255, 255, 255, 0.3);
+    font-style: italic;
+}
+
+.specs-price {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: white;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}

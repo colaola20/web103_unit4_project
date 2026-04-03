@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import '../App.css'
-import './CreateCar.css'
+import '../css/App.css'
+import '../css/CreateCar.css'
 import OptionsModal from '../components/OptionsModal'
 import CustomItemsAPI from '../services/CustomItemsAPI'
 import CarsAPI from '../services/CarsAPI'
@@ -59,6 +59,7 @@ const CreateCar = () => {
     const handleCreate = async () => {
         const newCar = await CarsAPI.createCar({
             name: car.name,
+            convertible: car.convertible,
             exterior: car.exterior?.name,
             roof: car.roof?.name,
             wheels: car.wheels?.name,
@@ -76,48 +77,88 @@ const CreateCar = () => {
     return (
         <div className='container-wraper'>
             <div className="create-car-container">
-            <div className="custom-items">
-                <label>
+                <div className="custom-items">
+                    <label>
+                        <input
+                            type="checkbox"
+                            checked={car.convertible}
+                            onChange={(e) => setCar({ ...car, convertible: e.target.checked })}
+                        />
+                        Convertible
+                    </label>
+                    <ul>
+                        <li>
+                            <button className={car.exterior ? 'option-selected' : ''} onClick={() => setShowExteriorModal(true)}>
+                                Exterior
+                            </button>
+                        </li>
+                        <li>
+                            <button className={car.roof ? 'option-selected' : ''} onClick={() => setShowRoofModal(true)}>
+                                Roof
+                            </button>
+                        </li>
+                        <li>
+                            <button className={car.wheels ? 'option-selected' : ''} onClick={() => setShowWheelsModal(true)}>
+                                Wheels
+                            </button>
+                        </li>
+                        <li>
+                            <button className={car.interior ? 'option-selected' : ''} onClick={() => setShowInteriorModal(true)}>
+                                Interior
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                <div className="actions">
                     <input
-                        type="checkbox"
-                        checked={car.convertible}
-                        onChange={(e) => setCar({ ...car, convertible: e.target.checked })}
+                        type="text"
+                        value={car.name}
+                        onChange={(e) => setCar({ ...car, name: e.target.value })}
+                        placeholder="My New Car"
                     />
-                    Convertible
-                </label>
-                <ul>
-                    <li>
-                        <button onClick={() => setShowExteriorModal(true)}>
-                            Exterior
-                        </button>
-                    </li>
-                    <li>
-                        <button onClick={() => setShowRoofModal(true)}>
-                            Roof
-                        </button>
-                    </li>
-                    <li>
-                        <button onClick={() => setShowWheelsModal(true)}>
-                            Wheels
-                        </button>
-                    </li>
-                    <li>
-                        <button onClick={() => setShowInteriorModal(true)}>
-                            Interior
-                        </button>
-                    </li>
-                </ul>
+                    <ul>
+                        <li><button onClick={handleCreate}>Create</button></li>
+                    </ul>
+                </div>
             </div>
-            <div className="actions">
-                <input
-                    type="text"
-                    value={car.name}
-                    onChange={(e) => setCar({ ...car, name: e.target.value })}
-                    placeholder="My New Car"
-                />
-                <ul>
-                    <li><button onClick={handleCreate}>Create</button></li>
-                </ul>
+
+            <div className="preview-area">
+                <div className="car-specs">
+                    <h3>{car.name || 'Unnamed Car'}</h3>
+                    <ul className="specs-list">
+                        <li>
+                            <span className="spec-label">Convertible</span>
+                            <span className="spec-value">{car.convertible ? 'Yes' : 'No'}</span>
+                        </li>
+                        <li>
+                            <span className="spec-label">Exterior</span>
+                            <span className={`spec-value ${!car.exterior ? 'spec-empty' : ''}`}>
+                                {car.exterior ? car.exterior.name : 'Not selected'}
+                            </span>
+                        </li>
+                        <li>
+                            <span className="spec-label">Roof</span>
+                            <span className={`spec-value ${!car.roof ? 'spec-empty' : ''}`}>
+                                {car.roof ? car.roof.name : 'Not selected'}
+                            </span>
+                        </li>
+                        <li>
+                            <span className="spec-label">Wheels</span>
+                            <span className={`spec-value ${!car.wheels ? 'spec-empty' : ''}`}>
+                                {car.wheels ? car.wheels.name : 'Not selected'}
+                            </span>
+                        </li>
+                        <li>
+                            <span className="spec-label">Interior</span>
+                            <span className={`spec-value ${!car.interior ? 'spec-empty' : ''}`}>
+                                {car.interior ? car.interior.name : 'Not selected'}
+                            </span>
+                        </li>
+                    </ul>
+                    <div className="specs-price">
+                        ${totalPrice.toLocaleString()}
+                    </div>
+                </div>
             </div>
 
             {showExteriorModal && (
@@ -156,13 +197,6 @@ const CreateCar = () => {
                     onClose={() => setShowInteriorModal(false)}
                 />
             )}
-
-            </div>
-            <div className='price-box'>
-                <ul>
-                    <li><button>💵 ${totalPrice.toLocaleString()}</button></li>
-                </ul>
-            </div>
         </div>
     )
 }

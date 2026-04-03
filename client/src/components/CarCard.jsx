@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import './CarCard.css'
+import '../css/CarCard.css'
 
 const CarCard = ({ car }) => {
     const navigate = useNavigate()
@@ -10,6 +10,10 @@ const CarCard = ({ car }) => {
                 <h3>{car.name}</h3>
             </div>
             <div className="car-card-body">
+                <div className="car-spec">
+                    <span className="spec-label">Convertible</span>
+                    <span className="spec-value">{car.convertible ? 'Yes' : 'No'}</span>
+                </div>
                 <div className="car-spec">
                     <span className="spec-label">Exterior</span>
                     <span className="spec-value">{car.exterior}</span>

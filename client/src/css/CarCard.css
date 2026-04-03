@@ -12,7 +12,7 @@
     border-radius: 16px;
     border: 1px solid var(--border);
 
-    min-width: 400px;
+    min-width: 360px;
     max-width: 500px; /* optional */
     width: 100%;
 
@@ -22,7 +22,6 @@
 
     transition: all 0.25s ease;
     box-sizing: border-box;
-    margin: 24px;
 
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
