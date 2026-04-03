@@ -20,6 +20,16 @@ const getCarById = async (id) => {
     return data
 }
 
+const updateCar = async (id, carData) => {
+    const response = await fetch(`/api/cars/${id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(carData)
+    })
+    const data = await response.json()
+    return data
+}
+
 const deleteCar = async (id) => {
     const response = await fetch(`/api/cars/${id}`, { method: 'DELETE' })
     return response.ok
@@ -27,6 +37,7 @@ const deleteCar = async (id) => {
 
 export default {
     createCar,
+    updateCar,
     getAllCars,
     getCarById,
     deleteCar

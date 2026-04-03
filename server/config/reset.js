@@ -49,7 +49,7 @@ const createOptionsTable = async () => {
 
         CREATE TABLE IF NOT EXISTS options (
             id SERIAL PRIMARY KEY,
-            customItemId INTEGER NOT NULL,
+            category_name VARCHAR(255) NOT NULL,
             name VARCHAR(255) NOT NULL,
             price NUMERIC(10,2),
             requiresConvertible BOOLEAN
@@ -69,11 +69,11 @@ const seedOptionsTable = async () => {
 
     options.forEach((option) => {
         const insertQuesry = {
-            text: 'INSERT INTO options (customItemId, name, price, requiresConvertible) VALUES ($1, $2, $3, $4)'
+            text: 'INSERT INTO options (category_name, name, price, requiresConvertible) VALUES ($1, $2, $3, $4)'
         }
 
         const values = [
-            option.category_id,
+            option.category_name,
             option.name,
             option.price,
             option.requires_convertible

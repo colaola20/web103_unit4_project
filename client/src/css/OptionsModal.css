@@ -129,6 +129,31 @@
     border: 1px solid var(--primary);
 }
 
+/* Locked option (requires convertible) */
+.modal-option.option-locked {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.modal-option.option-locked:hover {
+    background: transparent;
+}
+
+.option-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.convertible-warning {
+    font-size: 0.72rem;
+    color: #f59e0b;
+    border: 1px solid #f59e0b;
+    border-radius: 4px;
+    padding: 1px 6px;
+    white-space: nowrap;
+}
+
 /* Disabled */
 .done-btn:disabled {
     background: #444;

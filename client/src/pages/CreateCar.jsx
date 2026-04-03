@@ -15,21 +15,12 @@ const CreateCar = () => {
 
     useEffect(() => {
         const fetchOptions = async () => {
-            const customItems = await CustomItemsAPI.getCustomItems()
-
-            const fetchByName = async (name) => {
-                const item = customItems.find(i => i.name.toLowerCase() === name)
-                if (item) return await CustomItemsAPI.getOptionsByCustomItemId(item.id)
-                return []
-            }
-
             const [exterior, roof, wheels, interior] = await Promise.all([
-                fetchByName('exterior'),
-                fetchByName('roof'),
-                fetchByName('wheels'),
-                fetchByName('interior'),
+                CustomItemsAPI.getOptionsByCategory('exterior'),
+                CustomItemsAPI.getOptionsByCategory('roof'),
+                CustomItemsAPI.getOptionsByCategory('wheels'),
+                CustomItemsAPI.getOptionsByCategory('interior'),
             ])
-            console.log(exterior)
             setExteriorOptions(exterior)
             setRoofOptions(roof)
             setWheelsOptions(wheels)
@@ -168,6 +159,7 @@ const CreateCar = () => {
                     currentSelection={car.exterior}
                     onDone={(option) => setCar({ ...car, exterior: option })}
                     onClose={() => setShowExteriorModal(false)}
+                    isConvertible={car.convertible}
                 />
             )}
             {showRoofModal && (
@@ -177,6 +169,7 @@ const CreateCar = () => {
                     currentSelection={car.roof}
                     onDone={(option) => setCar({ ...car, roof: option })}
                     onClose={() => setShowRoofModal(false)}
+                    isConvertible={car.convertible}
                 />
             )}
             {showWheelsModal && (
@@ -186,6 +179,7 @@ const CreateCar = () => {
                     currentSelection={car.wheels}
                     onDone={(option) => setCar({ ...car, wheels: option })}
                     onClose={() => setShowWheelsModal(false)}
+                    isConvertible={car.convertible}
                 />
             )}
             {showInteriorModal && (
@@ -195,6 +189,7 @@ const CreateCar = () => {
                     currentSelection={car.interior}
                     onDone={(option) => setCar({ ...car, interior: option })}
                     onClose={() => setShowInteriorModal(false)}
+                    isConvertible={car.convertible}
                 />
             )}
         </div>

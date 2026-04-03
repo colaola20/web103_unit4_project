@@ -21,12 +21,13 @@ const createCar = async (req, res) => {
 const updateCar = async (req, res) => {
     try {
         const id = parseInt(req.params.id)
-        const { name, exterior, roof, wheels, interior, price } = req.body
+        const { name, convertible, exterior, roof, wheels, interior, price } = req.body
         const result = await pool.query(`
-            UPDATE cars SET name = $1, exterior = $2, roof = $3, wheels = $4, interior = $5, price = $6 WHERE id = $8`,
-            [name, exterior, roof, wheels, interior, price, id]
+            UPDATE cars SET name = $1, convertible = $2, exterior = $3, roof = $4, wheels = $5, interior = $6, price = $7 WHERE id = $8
+            RETURNING *`,
+            [name, convertible ?? false, exterior, roof, wheels, interior, price, id]
         )
-        res.status(200).json(results.rows[0])
+        res.status(200).json(result.rows[0])
 
     } catch (error) {
         res.status(409).json( { error: error.message } )
