@@ -40,7 +40,8 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented required features:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+https://github.com/user-attachments/assets/c614934d-af5b-4534-aa48-9ef06e067481
+
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with ...  GIF tool here
